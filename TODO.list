@@ -1,0 +1,48 @@
+KKKK So here are all the tasks broken up by section. Too bad trello is expensive lmao
+Ignore the task tagged with [Delay], those will be done before release
+
+-- The DESCRIPTION determines the TODO LIST, not the otherway around --
+
+DESCRIPTION:
+
+Client - A interactive webapp that relays commands to the server in order to execute commands
+Server - A backend constant program that delegates commands to the driver.
+            Also handles session/user managment
+            Also relays requested pages back to the frontend.
+Driver - Executes recieved commands that are of the correct credentials.
+
+
+
+
+TODO LIST:
+
+            ----    Client      ----
+Design needs to be updated
+Dash needs to be angular
+[Delay]Dash needs all the commands
+Webpack needs to be safely setup
+[Delay] Needs a user info page 
+
+
+
+            ----    Server      ----
+Drivers need to be properly intergrated with the db 
+
+
+
+            ----    Database    ----  <-- update this to current values
+    Active Sessions:
+        SessionID | isActive
+        
+    Devices:
+        DeviceID | OwnersUserID
+        
+    UserInfo:
+        UserID | Email | Password | Salt 
+        
+        
+        
+            ----    Driver      ----
+Assemble all the libraries needed. fuck babel 
+Actually make it connect to the Server.
+Make the code make sense
