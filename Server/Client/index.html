@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="LandingApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tunnel Login</title>
+  <link rel="stylesheet" href="css/MainTheme.css">
+  <link rel="stylesheet" href="css/Button.css">
+</head>
+
+<!-- TODO: ng-init. Reall on all pages -->
+
+<body ng-controller="LandingController">
+  <div class="LoginContainer">
+    <div class="Title">
+      <h1>{{TitleMessage()}}</h1>
+    </div>
+    <div class="ErrorArea" style="display:none">
+      <span></span>
+    </div>
+    <div class="InputArea">
+      <input id="Username" type="text" placeholder="Email" class="textbox"></input>
+    </div>
+    <div class="InputArea">
+      <input id="Password" type="password" placeholder="Password" class="textbox"></input>
+    </div>
+    <div class="InputArea" ng-show="isRegistration">
+      <input id="Confirm" type="password" placeholder="Confirm" class="textbox"></input>
+    </div>
+    <div class="ButtonArea">
+      <button class="pulse" id="loginBtn" ng-show="!isRegistration" ng-click="onLogin()">Login</button>
+      <button class="pulse" id="registerBtn" ng-click="onRegister()">Register</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="/js/ng-landing.js"></script>
+</body>
+
+</html>

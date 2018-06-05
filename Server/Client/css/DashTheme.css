@@ -1,0 +1,242 @@
+/* Colors */
+
+/* Variables */
+
+.FloatingHeader {
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+}
+
+.DeviceSelector {
+    width: 350px;
+    margin: auto;
+}
+
+.UserOptionsContainer {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.MainContainer {
+    z-index: 0;
+}
+
+input {
+    border: 1px solid #ffa260;
+    background-color: #17181c;
+    color: #FFF;
+    margin: 0.5em;
+    padding: 0.25em 0.5em;
+    outline: none !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    transition: box-shadow linear 0.4s;
+}
+
+.textbox:focus {
+    -webkit-box-shadow: 0px 0px 7px #ffa260;
+    -moz-box-shadow: 0px 0px 7px #ffa260;
+    box-shadow: 0px 0px 7px #ffa260;
+}
+
+.pulse:hover,
+.pulse:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 0.5em rgba(255, 255, 255, 0);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+.pulse {
+    --color: #ffa260;
+    --hover: #ffaf60;
+}
+
+button {
+    color: var(--color);
+    transition: 0.25s;
+    /* round the corners */
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+button:hover,
+button:focus {
+    border-color: var(--hover);
+    color: #fff;
+}
+
+body {
+    color: #fff;
+    background: #17181c;
+    font: 300 1em 'Fira Sans', sans-serif;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+    outline: none !important;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+/* Placeholder */
+
+/* Normalize */
+
+ul,
+dl {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
+}
+
+dd {
+    -webkit-margin-start: 0;
+}
+
+/* Dropy style */
+
+.dropy {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+}
+
+.dropy__title {
+    position: relative;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    font-size: 1.6rem;
+    color: #464646;
+    cursor: pointer;
+    transition: border-color 250ms ease-in-out;
+}
+
+.dropy__title span {
+    display: block;
+    padding: 1rem 3rem 1rem 1.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.dropy__title:hover {
+    border-color: #868686;
+}
+
+.dropy__title:after {
+    content: "";
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 0.4rem solid #868686;
+    border-left: 0.48rem solid transparent;
+    border-right: 0.48rem solid transparent;
+}
+
+.dropy__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.dropy__content ul {
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 0.2rem;
+    max-height: 0;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out, max-height 250ms ease-in-out;
+    list-style: none;
+    background: #17181c;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.dropy__content ul li:first-child a:hover {
+    border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.dropy__content ul li:last-child a {
+    margin-bottom: 1.5rem;
+}
+
+.dropy__content ul li:last-child a:hover {
+    border-radius: 0 0 0.2rem 0.2rem;
+}
+
+.dropy__content li a {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    background-color: #17181c;
+    color: #464646;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.dropy__content li a:hover {
+    color: #666666;
+    background-color: #17181c;
+}
+
+.dropy__content .dropy__header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+}
+
+.dropy__content .selected {
+    font-weight: 700 !important;
+    color: #ffa260;
+}
+
+.dropy.open .dropy__content ul {
+    max-height: 30rem;
+    overflow-y: scroll;
+    opacity: 1;
+}
+
+.dropy.dark .dropy__title {
+    border-color: #868686;
+    color: #cccccc;
+}
+
+.dropy.dark .dropy__title:hover {
+    border-color: #cccccc;
+}

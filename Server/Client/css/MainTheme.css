@@ -1,0 +1,76 @@
+input {
+  border: 1px solid #ffa260;
+  background-color: #17181c;
+  color: #FFF;
+  margin: 0.5em;
+  padding: 0.25em 0.5em;
+  outline: none !important;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  transition: box-shadow linear 0.4s;
+}
+
+.textbox:focus {
+  -webkit-box-shadow: 0px 0px 7px #ffa260;
+  -moz-box-shadow: 0px 0px 7px #ffa260;
+  box-shadow: 0px 0px 7px #ffa260;
+}
+
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 0.5em rgba(255, 255, 255, 0);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+.pulse {
+  --color: #ffa260;
+  --hover: #ffaf60;
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+  /* round the corners */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+body {
+  color: #fff;
+  background: #17181c;
+  font: 300 1em 'Fira Sans', sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  outline: none !important;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+h1 {
+  font-weight: 400;
+}

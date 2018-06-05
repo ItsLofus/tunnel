@@ -1,0 +1,14 @@
+{
+  "name": "tunnel-server",
+  "version": "0.0.0",
+  "description": "Tunnels task managing backend",
+  "main": "server.js",
+  "repository": "",
+  "author": "",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.15.4",
+    "mongodb": "^2.2.31"
+  }
+}

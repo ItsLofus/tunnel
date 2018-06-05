@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="DashApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Command Your Devices!</title>
+  <!-- consider adding a base.css that and simple things to speed up load time -->
+  <!-- The dropy css needs to be updated to match the pen. Why dont you just make a project?-->
+  <!-- We really should angular most of this stuff up to make it more dynamic -->
+  <link rel="stylesheet" type="text/css" href="/css/Button.css">
+  <!--<link rel="stylesheet" type="text/css" href="/css/droopy.css">-->
+  <link rel="stylesheet" type="text/css" href="/css/DashTheme.css">
+</head>
+
+<body ng-controller="DashController" ng-init="init()">
+  <div class="FloatingHeader">
+    <!-- Swap this out for a functioning plugin -->
+    <!--<div class="DeviceSelector">-->
+    <!--  <div class="DeviceDropdown">-->
+    <!--    <dl class="dropy">-->
+    <!--      <dt class="dropy__title">-->
+    <!--      <span>No Devices Connected</span>-->
+    <!--    </dt>-->
+    <!--      <dd class="dropy__content">-->
+    <!--TODO: Angular loop this -->
+    <!--        <ul id="DeviceList">-->
+    <!--          <li value="0"><a>No Devices Connected</a></li>-->
+    <!--          <li value="1"><a>Some device</a></li>-->
+    <!--        </ul>-->
+    <!--      </dd>-->
+    <!--      <input type="hidden" name="first">-->
+    <!--    </dl>-->
+    <!--  </div>-->
+    <!--</div>-->
+
+    <div class="DeviceSelector">
+      <div class="SelectButton">
+        <button class="pulse" id="SelectBtn" ng-click="ToggleDevices()">{{selectedDevice.Name}}</button>
+        <div class="DeviceOptions" ng-show="areDevicesVisible">
+          <div ng-repeat="d in DeviceOptions">
+            <span class="DeviceOption" style="cursor:pointer" ng-click="SelectDevice($index)" id="{{d.ID}}">{{d.Name}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="UserOptionsContainer">
+      <!-- A little button to access the user page -->
+      <button class="pulse" id="UserBtn">I</button>
+    </div>
+  </div>
+
+
+  <!-- TODO: Decide if you should use socketio or posts 
+              Support dynamic/custom commands
+              DRIVER END TIME BOOOIIII -->
+  <div class="MainContainer">
+    <div class="ButtonArea">
+      <!-- This should hold all of the commands -->
+      <button class="pulse" id="ShutdownBtn" ng-click="ShutdownCommand()">Shutdown</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular-animate.js"></script>
+  <script src="/js/ng-dash.js"></script>
+  <!--<script src="/build/includes.js"></script>-->
+  <script type="text/javascript" src="/js/droopy.js"></script>
+  <script type="text/javascript" src="/js/Dash.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+// input box styling
+input {
+    border: 1px solid #ffa260;
+
+    background-color: hsl(227, 10%, 10%);
+  
+    color: #FFF;
+    margin: 0.5em;
+    padding: 0.25em 0.5em;
+    outline: none !important;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  transition: box-shadow linear 0.4s;
+}
+
+.textbox:focus { 
+    -webkit-box-shadow: 0px 0px 7px #ffa260;
+       -moz-box-shadow: 0px 0px 7px #ffa260;
+            box-shadow: 0px 0px 7px #ffa260;
+}
+
+
+
+// The button is totally @Giana's work. I really didnt edit much I swear...
+.pulse:hover, 
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 0.5em rgba(#fff,0);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--hover); }
+}
+
+$colors: (
+  pulse: #ffa260,
+);
+
+
+@each $button, $color in $colors {
+  .#{$button} {
+    --color: $color;
+    --hover: adjust-hue($color, 5deg);
+  }
+}
+
+button {  
+  color: var(--color);
+  transition: 0.25s;
+  /* round the corners */
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  
+  &:hover,
+  &:focus { 
+    border-color: var(--hover);
+    color: #fff;
+  }
+}
+
+// Pen styling  -- You really need to abstract this so it doesn't overlap
+body {
+  color: #fff;
+  background: hsl(227, 10%, 10%);
+  font: 300 1em 'Fira Sans', sans-serif;
+  
+  // Center everything ever <-- ya same
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  outline: none !important;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+h1 { font-weight: 400; }
