@@ -37,7 +37,7 @@ dapp.controller("DashController", function($scope, $http) {
     };
 
     $scope.init = function() {
-        $scope.serverURI = "https://tunnel-lofus.c9users.io";
+        $scope.serverURI = "";
         $scope.isRegistration = false;
         $scope.ClientInfo = _private.parseObjectFromCookie(_private.getCookie("client_info"));
         $scope.DeviceOptions = $scope.ClientInfo.Devices;

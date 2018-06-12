@@ -2,7 +2,7 @@
 /*global jQuery*/
 var lapp = angular.module('LandingApp', []);
 lapp.controller("LandingController", function($scope, $http) {
-    $scope.serverURI = "https://tunnel-lofus.c9users.io";
+    $scope.serverURI = "";
     $scope.isRegistration = false;
 
     $scope.TitleMessage = function(override) {
@@ -20,7 +20,7 @@ lapp.controller("LandingController", function($scope, $http) {
         $http.post(this.serverURI + "/signin", postData)
             .success(function(data) {
                 if (data.success)
-                    window.location.href = "https://tunnel-lofus.c9users.io/dash";
+                    window.location.href = $scope.serverURI + "/dash";
                 else if (data.message)
                     $scope.TitleMessage(data.message);
                 console.log(data);

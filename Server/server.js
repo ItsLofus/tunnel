@@ -46,6 +46,7 @@ var Driver = mongoose.model('Driver', DriverSchema);
 
 // Server Side Variables/Definitions
 const port = process.env.PORT || 3000;
+const SOCKET_IP = "0.0.0.0" + port;
 const CLIENT_ROOT = __dirname + "/Client/";
 const DEBUG = true;
 const TEST_USERID = "testuuid";
@@ -191,7 +192,7 @@ function generateDash(req, res) {
   getRegisteredDriverIDs(UserID, function(Devices) {
     // TESTING OVERIDE
     if (DEBUG && UserID == TEST_USERID) {
-      var OnlyDevice = DefaultDevice;
+      var OnlyDevice = {};
       OnlyDevice.ID = "4206969";
       OnlyDevice.Name = "Dream Meme";
       ClientInfo.Devices.push(OnlyDevice);
@@ -206,10 +207,10 @@ function generateDash(req, res) {
       //TODO: needs a bit of logic to convert each device into the final object format 
       ClientInfo.Devices = Devices;
       ClientInfo.UserInfo = getUserInfo(UserID); // Pretty sure it just needs userid
-      ClientInfo.Session = "Keystone"; // Verification handled by keystone, this param is useless
+      ClientInfo.Session = "Keystone"; // this param is useless
     }
 
-    res.cookie("socket_ip", "tunnel-lofus.c9users.io");
+    res.cookie("socket_ip", SOCKET_IP);
     res.cookie("client_info", JSON.stringify(ClientInfo));
     res.sendFile(path.resolve(CLIENT_ROOT + "Dash.html"));
   });
@@ -312,6 +313,7 @@ function checkActivity(SocketID) {
 // Again I dont know if that's needed
 io.on('connection', function(socket) {
   // So this whole registration process thing should be gutted to integrate with a db
+  console.log("Connection attempted");
 
   // Something just connected, check if it has reconnected
   checkActivity(socket.id);
