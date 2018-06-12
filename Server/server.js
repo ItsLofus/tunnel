@@ -17,7 +17,8 @@ var io = require('socket.io')(http);
 
 
 // Database Side Variables/Definitions 
-const DB_URL = "mongodb://" + process.env.IP + "/tunneldb";
+const DB_URL = "mongodb://" + "0.0.0.0:23456"+ "/tunneldb";
+console.log(DB_URL);
 mongoose.connect(DB_URL, { useMongoClient: true });
 mongoose.Promise = global.Promise;
 var Schema = mongoose.Schema;

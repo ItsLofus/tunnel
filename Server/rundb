@@ -1,1 +1,1 @@
-mongod --bind_ip=$IP --dbpath=Database --nojournal --rest "$@"
+mongod --port=23456 --dbpath=Database
